@@ -3,6 +3,7 @@ package com.example.cossulorenzo.skynow;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,12 +15,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class HomePage extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+         {
+    ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
+
+        ViewPagerAdpapter viewPagerAdpapter = new ViewPagerAdpapter(this);
+        viewPager.setAdapter(viewPagerAdpapter);
+/*
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -40,7 +48,9 @@ public class HomePage extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    */
     }
+    /*
 
     @Override
     public void onBackPressed() {
@@ -97,5 +107,6 @@ public class HomePage extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
+    }*/
+
 }
